@@ -1,5 +1,3 @@
----
-
 ## 🧱 Tecnologias Utilizadas
 
 - ``HTML5``
