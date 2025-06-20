@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Supreme", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+body #postModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #47302B;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+  padding: 3rem;
+  z-index: 4;
+  overflow-y: scroll;
+  display: none;
+}
+body #postModal button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+body #postModal button i {
+  color: #1d1d1d;
+  font-size: 3rem;
+}
+body #postModal article {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+body #postModal article span {
+  color: #1d1d1d;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+body #postModal article div {
+  color: #808080;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+body #postModal h3 {
+  color: #1d1d1d;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+body #postModal p {
+  color: #1d1d1d;
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-indent: 0.5rem;
+}
+body #postModal p::-webkit-scrollbar {
+  width: 10px;
+}
+body #postModal p::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  border-radius: 0.5rem;
+}
+body #postModal::-webkit-scrollbar {
+  width: 10px;
+}
+body #postModal::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  border-radius: 0.5rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  height: 20vh;
+  position: relative;
+}
+header h1 {
+  color: #885146;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 2rem 0;
+  z-index: 2;
+}
+main section {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+  width: 50%;
+}
+main section .section-post {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+main section .section-post span {
+  color: #4d4d4d;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+main section .section-post h3 {
+  color: #1d1d1d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+main section .section-post p {
+  color: #808080;
+  font-size: 1rem;
+  font-weight: 300;
+}
+main section .section-post div {
+  color: #808080;
+  opacity: 0.5;
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 0.8rem 0;
+}
+main section .section-post .openPost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.3rem;
+  background-color: #47302B;
+  color: #F8FAFC;
+  padding: 1rem 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+main section .section-post .openPost p {
+  color: #F8FAFC;
+  font-size: 1rem;
+  font-weight: 300;
+}
+main section .section-post .openPost:hover {
+  background-color: #885146;
+  color: #F8FAFC;
+  transition: all 0.2s ease-in-out;
+}
+
+footer {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 50%;
+  height: 30vh;
+}
+
+@media (max-width: 429px) {
+  body #postModal {
+    height: 95%;
+    padding: 3rem 1rem 4rem 2rem;
+  }
+  body #postModal button {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  body #postModal article span {
+    font-size: 1rem;
+  }
+  body #postModal article div {
+    font-size: 0.6rem;
+  }
+  body #postModal h3 {
+    font-size: 1.7rem;
+  }
+  body #postModal p {
+    font-size: 1.2rem;
+    overflow-y: scroll;
+  }
+}/*# sourceMappingURL=styles.css.map */

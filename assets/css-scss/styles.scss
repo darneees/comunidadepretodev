@@ -1,0 +1,239 @@
+// import fies
+@import '_imports/functions',
+        '_imports/variables';
+
+* {
+    @include reset();
+    font-family: 'Supreme', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @include align(center, center, column, 0);
+    width: 100%;
+
+    &::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../img/background.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+        z-index: 1;
+    }
+
+
+    #postModal {
+        @include align(center, center, column, 1.5rem);
+        background-color: $brown-800;
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        height: 100%;
+        padding: 3rem;
+        z-index: 4;
+        overflow-y: scroll;
+        display: none;
+
+
+        button {
+            @include align(center, center, row, 0);
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            width: 2rem;
+            height: 2rem;
+
+            i {
+                color: $black-700;
+                font-size: 3rem;
+            }
+        }
+
+        article {
+            @include align(start, center, column, .3rem);
+
+            span {
+                color: $black-700;
+                font-size: 1rem;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+            
+            div {
+                color: $black-500;
+                font-size: .8rem;
+                font-weight: 300;
+            }
+        }
+
+        h3 {
+            color: $black-700;
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        p {
+            color: $black-700;
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-indent: .5rem;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+    
+            &::-webkit-scrollbar-thumb {
+                background-color: $black-400;
+                border-radius: .5rem;
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $black-400;
+            border-radius: .5rem;
+        }
+    }
+}
+
+// header
+header {
+    @include align(center, center, column, 0);
+    width: 100%;
+    height: 20vh;
+    position: relative;
+
+    h1 {
+        color: $ironstone-700;
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+// main
+main {
+    @include align(center, start, column, 0);
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 2rem 0;
+    z-index: 2;
+
+    section {
+        @include align(start, center, column, 5rem);
+        width: 50%;
+
+        .section-post {
+            @include align(start, center, column, .3rem);
+
+            span {
+                color: $black-600;
+                font-size: 1rem;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+
+            h3 {
+                color: $black-700;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+
+            p {
+                color: $black-500;
+                font-size: 1rem;
+                font-weight: 300;
+            }
+
+            div {
+                color: $black-500;
+                opacity: .5;
+                font-size: .8rem;
+                font-weight: 300;
+                padding: .8rem 0;
+            }
+
+            .openPost {
+                @include align(center, center, row, .3rem);
+                background-color: $brown-800;
+                color: $black-50;
+                padding: 1rem 1.2rem;
+                border: none;
+                outline: none;
+                border-radius: .8rem;
+                cursor: pointer;
+
+                p {
+                    color: $black-50;
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+
+                &:hover {
+                    background-color: $ironstone-700;
+                    color: $black-50;
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+// footer
+footer {
+    @include align(start, center, column, 0);
+    width: 50%;
+    height: 30vh;
+}
+
+@media (max-width: 429px) {
+    body {
+        #postModal {
+            height: 95%;
+            padding: 3rem 1rem 4rem 2rem;
+           
+
+            button {
+                top: .5rem;
+                right: .5rem;
+            }
+
+            article {
+
+                span {
+                    font-size: 1rem;
+                }
+
+                div {
+                    font-size: .6rem;
+                }
+            }
+
+            h3 {
+                font-size: 1.7rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                overflow-y: scroll;
+            }
+        }
+    }
+}
