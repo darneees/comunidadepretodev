@@ -1,10 +1,10 @@
 // import fies
-@import '_imports/functions',
-        '_imports/variables';
+@use '_imports/functions.scss' as *;
+@use '_imports/variables.scss' as *;
 
 * {
     @include reset();
-    font-family: 'Supreme', sans-serif;
+    font-family: 'switzer', sans-serif;
 }
 
 html {
@@ -14,116 +14,127 @@ html {
 body {
     @include align(center, center, column, 0);
     width: 100%;
+}
+
+header {
+    @include align(center, center, column, 3rem);
+    position: relative;
+    width: 100%;
+    height: 65vh;
+
+    nav {
+        @include align(center, center, row, 0);
+        position: relative;
+        background-color: $black-50;
+        width: 90%;
+        height: auto;
+        padding: 1rem;
+        z-index: 3;
+
+        picture {
+            width: 50%;
+            height: auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .menu-mobile-btn {
+            display: none;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            i {
+                color: $black-700;
+                font-size: 2rem;
+            }
+        }
+
+        .menu-desktop {
+            @include align(start, center, column, 0);
+        }
+
+        .menu-mobile {
+            @include align(start, center, column, 0);
+            background-color: $brown-800;
+            position: absolute;
+            bottom: -7.5rem;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 1rem;
+            display: none;
+            list-style: none;
+
+            li {
+                @include align(center, center, row, 0);
+                height: auto;
+                padding: .5rem 0;
+
+
+                a {
+                    color: $black-50;
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                    text-decoration: none;
+                    width: 100%;
+                    text-align: center;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    section {
+        @include align(center, center, column, .8rem);
+        width: 100%;
+
+        h1 {
+            width: 50%;
+            color: $black-700;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            z-index: 2;
+        }
+
+        p {
+            width: auto;
+            color: $black-500;
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+            padding: 1rem 0;
+            z-index: 2;
+        }
+    }
+
 
     &::before {
         content: "";
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('../img/background.webp');
+        background-image: url('../img/gradient-background.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.1;
+        opacity: .5;
         z-index: 1;
-    }
-
-
-    #postModal {
-        @include align(center, center, column, 1.5rem);
-        background-color: $brown-800;
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: 100%;
-        height: 100%;
-        padding: 3rem;
-        z-index: 4;
-        overflow-y: scroll;
-        display: none;
-
-
-        button {
-            @include align(center, center, row, 0);
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            width: 2rem;
-            height: 2rem;
-
-            i {
-                color: $black-700;
-                font-size: 3rem;
-            }
-        }
-
-        article {
-            @include align(start, center, column, .3rem);
-
-            span {
-                color: $black-700;
-                font-size: 1rem;
-                font-weight: 300;
-                text-transform: uppercase;
-            }
-            
-            div {
-                color: $black-500;
-                font-size: .8rem;
-                font-weight: 300;
-            }
-        }
-
-        h3 {
-            color: $black-700;
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
-        p {
-            color: $black-700;
-            font-size: 1.1rem;
-            font-weight: 300;
-            text-indent: .5rem;
-
-            &::-webkit-scrollbar {
-                width: 10px;
-            }
-    
-            &::-webkit-scrollbar-thumb {
-                background-color: $black-400;
-                border-radius: .5rem;
-            }
-        }
-
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: $black-400;
-            border-radius: .5rem;
-        }
-    }
-}
-
-// header
-header {
-    @include align(center, center, column, 0);
-    width: 100%;
-    height: 20vh;
-    position: relative;
-
-    h1 {
-        color: $ironstone-700;
-        font-size: 1.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
     }
 }
 
@@ -133,7 +144,7 @@ main {
     width: 100%;
     height: auto;
     position: relative;
-    padding: 2rem 0;
+    padding: 3rem 0;
     z-index: 2;
 
     section {
@@ -141,44 +152,78 @@ main {
         width: 50%;
 
         .section-post {
-            @include align(start, center, column, .3rem);
+            @include align(center, space-between, row, .3rem);
+            background-color: $black-50;
+            position: relative;
+            width: 100%;
+            height: 18rem;
+            padding: 1.5rem;
+            border-radius: .8rem;
+            border: .1rem solid $black-100;
 
-            span {
-                color: $black-600;
-                font-size: 1rem;
-                font-weight: 300;
-                text-transform: uppercase;
+            .post {
+                @include align(start, center, column, .3rem);
+                width: 60%;
+
+                span {
+                    color: $ironstone-700;
+                    font-size: 1rem;
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+
+                h3 {
+                    color: $black-700;
+                    font-size: 2rem;
+                    font-weight: 500;
+                }
+
+                p {
+                    color: $black-500;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+
+                div {
+                    color: $black-500;
+                    opacity: .7;
+                    font-size: .8rem;
+                    font-weight: 300;
+                    padding: .8rem 0;
+                }
             }
 
-            h3 {
-                color: $black-700;
-                font-size: 2rem;
-                font-weight: 700;
-            }
+            picture {
+                background-color: $black-50;
+                width: 35%;
+                height: 100%;
+                border-radius: .5rem;
+                border: .1rem solid $black-200;
 
-            p {
-                color: $black-500;
-                font-size: 1rem;
-                font-weight: 300;
-            }
-
-            div {
-                color: $black-500;
-                opacity: .5;
-                font-size: .8rem;
-                font-weight: 300;
-                padding: .8rem 0;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: .5rem;
+                }
             }
 
             .openPost {
                 @include align(center, center, row, .3rem);
                 background-color: $brown-800;
-                color: $black-50;
-                padding: 1rem 1.2rem;
+                position: absolute;
+                bottom: -.8rem;
+                right: -.8rem;
                 border: none;
                 outline: none;
-                border-radius: .8rem;
+                padding: .7rem 1.5rem;
+                border-radius: .5rem;
                 cursor: pointer;
+
+                i {
+                    color: $black-0;
+                    font-size: 1rem;
+                }
 
                 p {
                     color: $black-50;
@@ -188,8 +233,6 @@ main {
 
                 &:hover {
                     background-color: $ironstone-700;
-                    color: $black-50;
-                    transition: all .2s ease-in-out;
                 }
             }
         }
@@ -204,35 +247,93 @@ footer {
 }
 
 @media (max-width: 429px) {
-    body {
-        #postModal {
-            height: 95%;
-            padding: 3rem 1rem 4rem 2rem;
-           
+    header {
+        @include align(center, center, column, 7rem);
+        height: auto;
+        padding: 5rem 2rem;
 
-            button {
-                top: .5rem;
-                right: .5rem;
+        nav {
+            @include align(center, space-between, row, 2rem);
+            padding: 1rem 2rem;
+
+            .menu-mobile-btn {
+                display: flex;
+            }
+            
+            .menu-desktop {
+                display: none;
             }
 
-            article {
-
-                span {
-                    font-size: 1rem;
-                }
-
-                div {
-                    font-size: .6rem;
-                }
+            .menu-mobile {
+                display: none;
             }
+        }
 
-            h3 {
+        section {
+            @include align(center, center, column, 0);
+            width: 100%;
+            padding: 0;
+
+            h1 {
+                width: 100%;
                 font-size: 1.7rem;
             }
 
             p {
-                font-size: 1.2rem;
-                overflow-y: scroll;
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    main {
+        padding: 0;
+
+        section {
+            @include align(center, center, column, 3rem);
+            width: 100%;
+            padding: 5rem 2rem;
+
+            .section-post {
+                @include align(center, space-between, column, 1rem);
+                width: 100%;
+                height: auto;
+
+                picture {
+                    width: 100%;
+                    height: 10rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                    }
+                }
+
+                .post {
+                    width: 100%;
+
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    p {
+                        font-size: .9rem;
+                    }
+                }
+
+                .openPost {
+                    @include align(center, center, row, .3rem);
+                    position: relative;
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+                    padding: .8rem 0;
+
+                    p {
+                        font-size: .9rem;
+                    }
+                }
             }
         }
     }
